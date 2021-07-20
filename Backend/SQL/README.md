@@ -60,6 +60,12 @@ FLUSH PRIVILEGES;
 
 Asterisks can be changed to the names of the respective databases and tables.
 
+Unless you know what you are doing, I really recommend using native password mode to avoid problems with Workbench.
+
+```sql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'typeSomePasswordHere';
+```
+
 ### Uninstalling SQL
 If you want to remove the SQL do:
 
