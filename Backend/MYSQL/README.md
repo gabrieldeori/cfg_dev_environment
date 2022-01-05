@@ -42,13 +42,13 @@ sudo mysql -u root -p
 You can create users INSIDE the mysql program using the command:
 
 ```sql
-CREATE USER 'someusername'@'somelocation' IDENTIFIED by 'someusername'
+CREATE USER 'someusername'@'somelocation' IDENTIFIED by 'password'
 ```
 
 You can change using the command:
 
 ```sql
-ALTER USER 'someusername'@'somelocation' IDENTIFIED by 'someusername'
+ALTER USER 'someusername'@'somelocation' IDENTIFIED by 'password'
 ```
 
 You can grant privileges to this user with the following commands:
