@@ -3,6 +3,9 @@
 SQL is the language used to manipulate data within a relational database. With it it is possible to make all the CRUD routine necessary for a database to be useful.
 There are positives and negatives to using SQL in your database, but today we're going to worry about how to just install it.
 
+## Prefer use nvm to install
+https://github.com/nvm-sh/nvm
+
 ## Installation
 To install Node correctly please access de original documentation.
 
