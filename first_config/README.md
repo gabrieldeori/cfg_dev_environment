@@ -41,8 +41,11 @@ First let's set up your email and username.
 ###### Put the same ones from GITHUB if you already intend to use it.
 
 ```sh
-git config --global user.name "Fulano de Tal"
-git config --global user.email fulanodetal@exemplo.br
+git config --global user.name username
+git config --global user.email email
+git config --global core.editor "code --wait"
+git config --list
+
 ```
 
 Now you can configure the default editor for whatever git needs. By default I use VSCode myself for editing. If you want to use it, put the code below. If not, use instead of "code" the name used to call the program in the terminal.
