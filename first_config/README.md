@@ -52,7 +52,7 @@ Now you can configure the default editor for whatever git needs. By default I us
 
 
 ```sh
-git config --global core.editor code
+git config --global core.editor "code --wait"
 ```
 
 Para testar se funcionou você pode fazer:
