@@ -1,78 +1,70 @@
-# Setting up development environment
+# Configurando ambiente de desenvolvimento para um devweb fullstack
 ## Visual Studio Code
 ---
-Visual Studio Code is my favorite tool to create code, it is lightweight, full of extensions, compatible with several tools and technologies, comes with GIT integrated into the UI and is an open source project.
+Visual Studio Code é minha ferramenta favorita para criar código, é leve, cheio de extensões, compatível com diversas ferramentas e tecnologias, vem com GIT integrado à UI e é um projeto open source.
 
-To download it just go to the official link:
+Para baixá-lo basta acessar o link oficial:
 
 > https://code.visualstudio.com
 
-The site will likely detect the operating system you are using and suggest the best version for download, if not, you probably know what you are doing.
+O site provavelmente detectará o sistema operacional que você está usando e sugerirá a melhor versão para download, caso contrário, você provavelmente sabe o que está fazendo.
 
-In my case I will download the .deb file since I run Linux Mint which is based on Ubuntu. If you have another OS, select the appropriate one.
+No meu caso vou baixar o arquivo .deb já que executo o Linux Mint que é baseado no Ubuntu. Se você tiver outro sistema operacional, selecione o apropriado.
 
-![Image demonstrating VSCode download page](./images/VSCodeDownload.png)
+![Imagem demonstrando a página de download do VSCode](./images/VSCodeDownload.png)
 
 ###### VSCode download page on 7/13/2021
 
 ## GIT
-### Installing
-Git is a tool that I fell in love with since the first day I met it, being able to save your change history is very important to reduce the work in dealing with the amount of versions that a file can take when it comes to development.
+### Instalando
+O Git é uma ferramenta pela qual me apaixonei desde o primeiro dia que a conheci, poder salvar seu histórico de alterações é muito importante para diminuir o trabalho em lidar com a quantidade de versões que um arquivo pode ter quando se trata de desenvolvimento.
 
-To install GIT on any UBUNTU-based distro just enter the commands:
+Caso seu SO não seja o Ubuntu, ou deseja uma possível versão mais recente da documentação por favor, entre [aqui](https://git-scm.com/book/pt-br/v2/Come%C3%A7ando-Instalando-o-Git), quando terminar pule essa seção **Instalando** e vá para **Configurando**, porém, se você tem Ubuntu ou uma distribuição baseada em nele(Linux Mint, xubuntu), é só seguir o tutorial digitar os comandos:
 
 ```sh
 sudo apt update && sudo apt install git-all
 ```
 
-To check the version do:
+Para checar a versão faça:
 
 ```sh
 git --version
 ```
 
-To install on other OS's check the original documentation:
-
-> https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
-
-### Setting
-You have to configure a few things to configure GIT correctly.
-First let's set up your email and username.
-###### Put the same ones from GITHUB if you already intend to use it.
+### Configuração
+Você precisa configurar algumas coisas para o GIT funcionar corretamente.
+Primeiro, vamos configurar seu e-mail e nome de usuário.
+###### Coloque os mesmos do GITHUB caso já pretenda usar.
 
 ```sh
 git config --global user.name username
 git config --global user.email email
-git config --global core.editor "code --wait"
-git config --list
-
 ```
 
-Now you can configure the default editor for whatever git needs. By default I use VSCode myself for editing. If you want to use it, put the code below. If not, use instead of "code" the name used to call the program in the terminal.
+Agora você pode configurar o editor padrão para qualquer necessidade do git. Por padrão, eu mesmo uso o VSCode para edição. Se você quiser usá-lo, coloque o código abaixo. Caso contrário, use em vez de **code** o nome usado para chamar o programa no terminal.
 
 
 ```sh
 git config --global core.editor "code --wait"
 ```
 
-Para testar se funcionou você pode fazer:
+Para visualizar a lista de configuração feitas:
 
 ```sh
 git config --list
 ```
+Isso deve mostrar uma lista com todos os valores para as configurações feitas.
 
-This should show a list with all the keys and values for the settings made.
-
-You can also test if a specific configuration is present, for example:
+Você também pode testar se uma configuração específica está presente, por exemplo:
 
 ```sh
 git config user.name
 ```
 
-### Generating SSH
-SSH is one of the ways to synchronize GIT with for example GitHub, with SSH you don't need to type the password all the time as is the case with HTTPS.
+### Gerando SSH
+SSH é uma das maneiras de sincronizar o GIT local com o seu repositório no site do GitHub, por exemplo, com o SSH você não precisa digitar a senha o tempo todo como é o caso do HTTPS.
 
-First check that you are at the root of your terminal:
+Primeiro verifique se você está na raiz do seu terminal:
 
 ```sh
 cd ~
@@ -83,25 +75,25 @@ Depois entre com o código abaixo e o email que você possui no serviço de hosp
 ssh-keygen -t ed25519 -C "your_email@example.com"
 ```
 
-When you press enter the following message will appear:
+Ao pressionar enter aparecerá a seguinte mensagem:
 
 >Enter a file in which to save the key (/home/you/.ssh/id_ed25519): [Press enter]
 
-Just press enter, unless you know what you're doing I don't recommend changing the location. After that the following message will appear:
+Basta pressionar enter, a menos que você saiba o que está fazendo, não recomendo alterar o local. Após isso aparecerá a seguinte mensagem:
 
 > Enter passphrase (empty for no passphrase): [Type a passphrase]
 
 > Enter same passphrase again: [Type passphrase again]
 
-Enter the password you deem necessary for your situation, I always put in good passwords!
+Digite a senha que achar necessária para sua situação, sempre coloque senhas boas!
 
-Now you will need to start ssh-agent with the following command:
+Agora você precisará iniciar o ssh-agent com o seguinte comando:
 
 ```sh
 eval "$(ssh-agent -s)"
 ```
 
-Then the message should appear:
+Em seguida, a mensagem deve aparecer:
 > Agent pid 59566
 
 Caso falhe, tente executar alguns comandos antes:
@@ -113,41 +105,41 @@ exec ssh-agent bash
 exec ssh-agent zsh
 ```
 
-Now run the command:
+Rode o comando:
 ```sh
 ssh-add ~/.ssh/id_ed25519
 ```
-Ready now just add this key to GITHUB. And how to do this? Follow up!
+Pronto agora basta adicionar esta chave ao GITHUB. E como fazer isso? Acompanhamento!
 
-### Adding SSH to your GITHUB
-To complete the configuration of GIT + GITHUB type in the terminal.
+### Adicionando SSH ao seu GITHUB
+Para completar a configuração do GIT + GITHUB digite no terminal.
 
 ```sh
 code ~/.ssh/id_ed25519.pub
 ```
+Agora é só copiar o conteúdo do arquivo que foi aberto, é um monte de letras juntas, eu juro que elas tem significado, mas vamos deixar pra outro dia.
 
-Now just copy everything inside the file that was opened.
+Feito isso, acesse seu GITHUB, digite o símbolo do seu perfil e vá em configurações:
 
-Once this is done, go to your GITHUB, enter the symbol of your profile and go to settings:
+![Imagem demonstrando a localização do botão de configuração](./images/GITHUB-Bar-Settings.png)
+Em seguida, prossiga pela barra lateral para SSH E GPG KEYS
 
-![Image demonstrating the location of the setup button](./images/GITHUB-Bar-Settings.png)
+![Imagem demonstrando a localização do botão SSH e GPG](./images/GITHUB-Bar-SSH.png)
 
-Then proceed through the sidebar to SSH AND GPG KEYS
+Clique em novo ssh:
 
-![Image demonstrating the location of the SSH and GPG button](./images/GITHUB-Bar-SSH.png)
+![Imagem demonstrando a localização do novo botão SSH](./images/GITHUB-NewSSH.png)
 
-Click on new ssh:
+No campo de título, forneça uma descrição para a chave SSH que você possa identificá-la facilmente.
+E no campo KEY cole o que acabamos de copiar do arquivo que abrimos.
 
-![Image demonstrating the location of the new SSH button](./images/GITHUB-NewSSH.png)
+![Imagem demonstrando a localização do botão chave](./images/GITHUB-Key.png)
 
-In the title field give a description for the SSH key that you can easily identify it.
-And in the KEY field paste what we just copied from the file we opened.
+Clique em Adicionar chave SSH:
 
-![Image demonstrating the location of key button](./images/GITHUB-Key.png)
+![Imagem demonstrando a localização do botão adicionar chave SSH](./images/GITHUB-Add.png)
 
-Click Add SSH Key:
-
-![Image demonstrating the location of the add SSH key button](./images/GITHUB-Add.png)
-
-If prompted, enter your password to validate the addition of the key on your GITHUB.
-Ready! Now you can use the SSH option when making your git clone.
+Se solicitado, digite sua senha para validar a adição da chave em seu GITHUB.
+Preparar! Agora você pode usar a opção SSH ao fazer seu clone do git.
+Se colocou senha, toda vez que iniciar uma nova seção no seu computador terá que digitar a senha novamente.
+Para sanar isso algumas distros oferecem para salvar a senha.
