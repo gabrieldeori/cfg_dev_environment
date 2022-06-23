@@ -1,81 +1,78 @@
 # MYSQL SERVER
-## Understanding
-SQL is the language used to manipulate data within a relational database. With it it is possible to make all the CRUD routine necessary for a database to be useful.
-There are positives and negatives to using SQL in your database, but today we're going to worry about how to just install it.
+## Compreendendo
+SQL é a linguagem usada para manipular dados dentro de um banco de dados relacional. Com ele é possível fazer toda a rotina CRUD necessária para que um banco de dados seja útil.
+Existem pontos positivos e negativos em usar SQL em seu banco de dados, mas hoje vamos nos preocupar apenas como instalá-lo.
 
-## Installation
-To check if the MYSQL installation is already available in your repository, just type:
+## Instalação
+Para verificar se a instalação do MYSQL já está disponível em seu repositório, basta digitar:
 
 ```sh
 apt search mysql-server
 ```
+Se houver, será devolvida a versão disponível para instalação.
 
-If there is, the version available for installation will be returned.
-
-To install MYSQL SERVER on your UBUNTU or derivative, just use the command below:
+Para instalar o MYSQL SERVER no seu UBUNTU ou derivado, basta usar o comando abaixo:
 
 ```sh
 sudo apt update && sudo apt install mysql-server
 ```
 
-Fair well, MYSQL Server is installed!
+Muito bem, o MYSQL Server está instalado!
 
-## Settings
-### Password plugin
-You can optionally, but **NOT** recommend **THIS**, to use a plugin for password security, to use the plugin just type:
+## Definições
+### Plugin de senha
+Você pode opcionalmente, mas eu **NÃO** recomendo **ESTE** procedimento caso não saiba o que está fazendo, para usar um plugin para segurança de senha, para usar o plugin basta digitar:
 
 ```sh
 sudo mysql_secure_installation
 ```
+Não recomendo no momento porque você pode ter problemas com a **workbench** que veremos mais adiante.
 
-I don't recommend it at the moment because in my case I had problems with the **workbench** that we'll see later.
-
-To start mysql type:
+Para iniciar o mysql digite:
 
 ```sh
 sudo mysql -u root -p
 ```
 
--p if you have set the password.
+-p se você criou um password
 
-### User Configuration
-You can create users INSIDE the mysql program using the command:
+### Configuração do usuário
+Você pode criar usuários DENTRO do programa mysql usando o comando:
 
 ```sql
 CREATE USER 'someusername'@'somelocation' IDENTIFIED by 'password'
 ```
 
-You can change using the command:
+Você pode alterar usando o comando:
 
 ```sql
 ALTER USER 'someusername'@'somelocation' IDENTIFIED by 'password'
 ```
-
-You can grant privileges to this user with the following commands:
+Você pode conceder privilégios a este usuário com os seguintes comandos:
 
 ```sql
 GRANT ALL PRIVILEGES ON *.* TO 'someusername'@'somelocation';
 FLUSH PRIVILEGES;
 ```
 
-Asterisks can be changed to the names of the respective databases and tables.
+Os asteriscos podem ser alterados para os nomes dos respectivos bancos de dados e tabelas.
 
-Unless you know what you are doing, I really recommend using native password mode to avoid problems with Workbench.
+A menos que você saiba o que está fazendo, eu realmente recomendo usar o modo de senha nativa para evitar problemas com o Workbench.
+Também recomendo o native_password para aprendizado junto a workbench e caso tenha problemas, volte nesse ponto.
 
 ```sql
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'typeSomePasswordHere';
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'algumasenha';
 ```
 
-### Uninstalling SQL
-If you want to remove the SQL do:
+### Desinstalando o SQL
+Se você deseja remover o SQL, faça:
 
 ```sh
 sudo apt-get remove mysql-server mysql-client mysql-common
 sudo apt-get autoremove
 sudo apt-get autoclean
 ```
-
-Now remove the files that were left behind:
+Agora remova os arquivos que foram deixados para trás:
 
 ```sh
 sudo rm -rf /var/lib/mysql
@@ -83,16 +80,14 @@ sudo rm -rf /etc/mysql
 ```
 
 ## MYSQL WORKBENCH
-This is a graphical tool that will help us to work with MYSQL.
-To install it is simple, just select the OS and DISTRO you want to download and install, or follow the step by step through the official link:
+Esta é uma ferramenta gráfica que nos ajudará a trabalhar com MYSQL.
+Para instalar é simples, basta selecionar o SO e a DISTRO que deseja baixar e instalar, ou seguir o passo a passo pelo link oficial:
 
-> sudo rm -rf /etc/mysql
+Normalmente existem duas versões
 
-There are usually two versions.
+> mysql-workbench-community_8.0.24-1ubuntu21.04_amd64.deb
+E
+> mysql-workbench-community-dbgsym_8.0.24-1ubuntu21.04_amd64.deb
 
-> (mysql-workbench-community_8.0.24-1ubuntu21.04_amd64.deb)
-AND
-(mysql-workbench-community-dbgsym_8.0.24-1ubuntu21.04_amd64.deb)
-
-Unless you know what you are doing, choose:
-> (mysql-workbench-community_8.0.24-1ubuntu21.04_amd64.deb)
+A menos que você saiba o que está fazendo, baixe esta:
+> mysql-workbench-community_8.0.24-1ubuntu21.04_amd64.deb
