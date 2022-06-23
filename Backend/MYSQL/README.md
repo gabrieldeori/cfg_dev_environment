@@ -17,11 +17,13 @@ Para instalar o MYSQL SERVER no seu UBUNTU ou derivado, basta usar o comando aba
 sudo apt update && sudo apt install mysql-server
 ```
 
-Muito bem, o MYSQL Server está instalado!
+Se não for Ubuntu ou derivado tente em https://dev.mysql.com/, se não encontrar a informação, é necessário recorrer ao google.
+
+Se correu tudo bem, o MYSQL Server está instalado!
 
 ## Definições
 ### Plugin de senha
-Você pode opcionalmente, mas eu **NÃO** recomendo **ESTE** procedimento caso não saiba o que está fazendo, para usar um plugin para segurança de senha, para usar o plugin basta digitar:
+O procedimento a seguir eu **NÃO** recomendo caso não saiba o que está fazendo,este procedimento é para usar um plugin para segurança de senha do banco o que permite gerir as senhas melhor, para usar o plugin basta digitar:
 
 ```sh
 sudo mysql_secure_installation
@@ -40,14 +42,26 @@ sudo mysql -u root -p
 Você pode criar usuários DENTRO do programa mysql usando o comando:
 
 ```sql
-CREATE USER 'someusername'@'somelocation' IDENTIFIED by 'password'
+CREATE USER 'umusuarioai'@'endereco' IDENTIFIED by 'senhaboa123'
 ```
 
-Você pode alterar usando o comando:
+Exemplo para criar um usuário:
+```sql
+CREATE USER 'meunome'@'localhost' IDENTIFIED WITH mysql_native_password BY 'digitealgumasenha';
+```
+O localhost apresentado é o endereço do banco, no caso localhost é o mesmo que o ip 127.0.0.1, que é a referência para a própria máquina.
+
+Você pode alterar um usuário usando o comando:
 
 ```sql
-ALTER USER 'someusername'@'somelocation' IDENTIFIED by 'password'
+ALTER USER 'usuarioexistente'@'endereco' IDENTIFIED by 'outrasenha'
 ```
+
+Exemplo para alterar a senha de um usuário:
+```sql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'digitealgumasenha';
+```
+
 Você pode conceder privilégios a este usuário com os seguintes comandos:
 
 ```sql
@@ -91,3 +105,5 @@ E
 
 A menos que você saiba o que está fazendo, baixe esta:
 > mysql-workbench-community_8.0.24-1ubuntu21.04_amd64.deb
+
+Aqui está o link: https://dev.mysql.com/downloads/workbench/
