@@ -1,32 +1,33 @@
 # MYSQL SERVER
-## Understanding
-SQL is the language used to manipulate data within a relational database. With it it is possible to make all the CRUD routine necessary for a database to be useful.
-There are positives and negatives to using SQL in your database, but today we're going to worry about how to just install it.
+## Entendendo
+Node.js é um interpretador de código que é software responsável por interpretar o código, conhecido como engine e, por vezes, de runtime. Por isso, é comum dizer que o Node.js é um runtime JavaScript.
 
-## Prefer use nvm to install
+## Atenção
+Eu recomendo usar o Node Version Manager, que abordarei abaixo para manipular as versões node. Se preferir pule a parte toda de instalação e vá para os extras.
 https://github.com/nvm-sh/nvm
 
-## Installation
-To install Node correctly please access de original documentation.
+## Instalação
+
+Para instalar da melhor forma possível com a documentação mais atualizada vá até:
 
 https://nodejs.org/en/download/
 
-But if you have an Ubuntu based Distro and you want the V14.X LTS version of node, then you can do:
+Mas se você tiver uma Distro baseada no Ubuntu e quiser a versão V14.X LTS do node, poderá fazer:
 
 ```sh
 curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-
 sudo apt-get install -y nodejs
 ```
 
-Check the version with:
+Veja se a versão foi instalada corretamente
 ```sh
 node --version
 ```
 
 
 ## Extra
- You can use NVM to manage what versions of Node you want to use. To install do:
+Pelas palavras do autor:
+"O nvm é um gerenciador de versão para node.js, foi projetado para ser instalado pelo usuário e invocado via shell. O nvm funciona em qualquer shell compatível com POSIX (sh, dash, ksh, zsh, bash), em particular nestas plataformas: unix, macOS e Windows WSL."
 
 ```sh
 curl -sL https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh install_nvm.sh
@@ -34,57 +35,57 @@ curl -sL https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.0/install.sh install
 bash install_nvm.sh
 ```
 
-To check if it worked:
+Para ver se funcionou
 
 ```sh
-command -v nvm
+nvm -v
 ```
 
-To install the LTS version, do:
+Para instalar versões a última lts(long term support)
 ```sh
 nvm install --lts
 ```
 
-To list the available versions:
+Para listar as versões disponíveis:
 
 ```sh
 nvm ls-remote
 ```
 
-To install a specific version:
+Para instalar uma versão específica.
 ```sh
 nvm install xx.xx.xx
 ```
 
-To install lastest release:
+Para instalar a última versão estável
 ```sh
 nvm install node
 ```
 
-To install an older LTS release by codename:
+Para instalar uma versão pelo codenome (codenome carbon por exemplo):
 
 ```sh
 nvm install carbon
 ```
 
-List installed versions:
+Listar versões instaladas:
 ```sh
 nvm ls
 ```
 
-To switch versions:
+Para trocar as versões
 
 ```sh
 nvm use xx.xx.xx
 ```
 
-To switch to lastest installed version:
+Para usar última instalada:
 
 ```sh
 nvm use node
 ```
 
-Use the lastest LTS version:
+Para usar versão última versão lts :
 
 ```sh
 nvm use --lts
