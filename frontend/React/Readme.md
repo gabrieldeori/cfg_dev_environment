@@ -16,7 +16,6 @@ Caso seja mostrado na tela um número de versão, por exemplo `6.14.4`, está tu
 
 E receberá de retorno o seguinte texto:
 ```json
-  Wrote to /home/cleyton/Documents/meuApp/package.json:
   {
     "name": "meuApp",
     "version": "1.0.0",
