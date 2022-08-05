@@ -78,27 +78,27 @@ O seguinte arquivo será gerado:
       /* Projects */
       [...]
       /* Language and Environment */
-      "target": "es2016",                                  /* Set the JavaScript language version for emitted JavaScript and include 
+      "target": "es2016", // Set the JavaScript language version for emitted JavaScript and include 
       [...]
 
       /* Modules */
-      "module": "commonjs",                                /* Specify what module code is generated. */
-      "rootDir": "./",                                     /* Specify the root folder within your source files. */
+      "module": "commonjs", // Specify what module code is generated.
+      "rootDir": "./", //Specify the root folder within your source files.
       [...]
 
       /* JavaScript Support */
       [...]
 
       /* Emit */
-      "outDir": "./",                                      /* Specify an output folder for all emitted files. */
+      "outDir": "./", // Specify an output folder for all emitted files.
       [...]
 
       /* Interop Constraints */
-      "esModuleInterop": true,                             /* Emit additional JavaScript to ease support for importing CommonJS modules.
+      "esModuleInterop": true, // Emit additional JavaScript to ease support for importing CommonJS modules.
       [...]
 
       /* Type Checking */
-      "strict": true,                                      /* Enable all strict type-checking options. */
+      "strict": true, Enable all strict type-checking options.
       [...]
     }
   }
